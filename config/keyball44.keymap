@@ -3,8 +3,8 @@
 #define SYMBOL  2
 #define FKEYS   3
 #define MOUSE   4
-#define SCROLL  5
-#define SNIPE   6
+//#define SCROLL  5
+//#define SNIPE   6
 
 #include <behaviors/mouse_keys.dtsi>
 #include <behaviors.dtsi>
@@ -29,6 +29,26 @@
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
                 bindings = <&kp PRCNT &kp LT &kp PRCNT> ; };};};
+
+/ {
+// Mac snipping tool 
+    macros {snip: 
+            snip {
+                label = "ZM_snip";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp LGUI &kp LCTRL &kp LSHIFT &kp N4> ; };};};
+
+// Mac whole screencap toolbar
+    macros {scrncap: 
+            scrncap {
+                label = "ZM_scrncap";
+                compatible = "zmk,behavior-macro";
+                #binding-cells = <0>;
+                bindings = <&kp LGUI &kp LSHIFT &kp N5> ; };};};
+
+// safety guard for combo that clears bluetooth
+
 
 &lt {
     tapping-term-ms = <240>;
@@ -82,18 +102,18 @@
 &kp ESCAPE      &kp Q     &kp W         &kp E        &kp R       &kp T                             &kp Y            &kp U  &kp I      &kp O    &kp P      &kp BACKSPACE
 &kp TAB         &kp A     &kp S         &kp D        &kp F       &kp G                             &kp H            &kp J  &kp K      &kp L    &kp SEMI   &kp SQT
 &kp LCTRL       &kp Z     &kp X         &kp C        &kp V       &kp B                             &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RIGHT_SHIFT
-                                  &kp LALT      &kp LGUI     &lt 6 CAPS  &lt 1 ENTER &kp SPACE   &kp ENTER   &lt 2 &r_aro                      &lt 5 &dplyr
-            >;                                              // ^[SNIPE]    ^[NUMNAV]                           ^[SYM]                            ^[SCROLL]
+                &kp LALT      &kp LGUI     &lt 4 CAPS  &lt 1 ENTER &kp SPACE                &kp ENTER   &lt 2 &r_aro                           &lt 1 &dplyr
+            >;                            // ^[Mouse]    ^[NUMNAV]                                         ^[SYM]                                 ^[NUMNAV]
         };
 
         number_layer {
             label = "NUMNAV";
 
-            // --------------------------------------------------                         ------------------------------------------------
-            // |   ESC  | PGUP  | HOME  |  UP   |  END  |   {   |                         |   }   |   7   |   8   |   9   |  MUTE | DEL  |
-            // |   TAB  | PGDN  | LFT   |  DWN  |  RGT  |   (   |                         |   )   |   4   |   5   |   6   |  Vol+ | INS  |
-            // |  CTRL  | SHFT  | ALT   |  Bksp |  DEL  |   [   |                         |   ]   |   1   |   2   |   3   |  Vol- | SHFT |
-            //   ---------------|  ALT  |  GUI  |---|L6/CAPS|L4/ENT|  SPC  |   |  ENT  |  0  |----------------((((o))))[:]| L5 %>%|
+        // --------------------------------------------------                         ------------------------------------------------
+        // |   ESC  | PGUP  | HOME  |  UP   |  END  |   {   |                         |   }   |   7   |   8   |   9   |  MUTE | DEL  |
+        // |   TAB  | PGDN  | LFT   |  DWN  |  RGT  |   (   |                         |   )   |   4   |   5   |   6   |  Vol+ | INS  |
+        // |  CTRL  | SHFT  | ALT   |  Bksp |  DEL  |   [   |                         |   ]   |   1   |   2   |   3   |  Vol- | SHFT |
+        //   ---------------|  ALT  |  GUI  |---|L6/CAPS|L4/ENT|  SPC  |   |  ENT  |  0  |----------------((((o))))[:]| L5 %>%|
 
             bindings = <
 &trans   &kp PG_UP    &kp HOME   &kp UP     &kp END     &kp LBRC                 &kp RBRC &kp N7  &kp N8   &kp N9  &kp C_MUTE    &kp DEL
@@ -107,13 +127,13 @@
             label = "SYMBOL";
 
             // --------------------------------------------------                         ------------------------------------------------
-            // | SET_BLE|  BT0  |  BT1  |  BT2  |   @   |   {   |                         |   }   |       |       |       |       |  BKSP |
+            // | SET_BLE|  BT0  |  BT1  |  BT2  |   @   |   {   |                         |   }   | snip  |scrncap|       |       |  BKSP |
             // |   TAB  |   !   |   %   |   #   |   _   |   <   |                         |   >   |   -   |   =   |   +   |  "|"  |   `   |
             // |  CTRL  |   ^   |   &   |   *   |   $   |   [   |                         |   ]   |   <-  |  %>%  | FKEYS |   \   |   ~   |
             //   ---------------|  ALT  |  GUI  |---|L6/CAPS|L4/ENT|  SPC  |   |  ENT  | L2 <- |-------------((((o))))[:] | BTCLR |
 
             bindings = <
-&out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2     &kp AT     &kp LBRC               &kp RBRC       &none         &none      &none      &none         &trans
+&out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2     &kp AT     &kp LBRC               &kp RBRC       &snip         &scrncap   &none      &none         &trans
 &trans        &kp EXCL     &kp PRCNT     &kp HASH         &kp UNDER  &kp LT                 &kp GT         &kp MINUS     &kp EQUAL  &kp PLUS   &kp PIPE      &kp GRAVE
 &trans        &kp CARET    &kp AMPS      &kp KP_MULTIPLY  &kp DLLR   &kp LBKT               &kp RBKT       &r_aro        &dplyr     &mo 3      &kp BSLH      &kp TILDE
                            &trans   &trans              &trans  &trans   &trans        &trans  &trans                                          &bt BT_CLR
@@ -133,31 +153,31 @@
         mouse_layer {
             label = "MOUSE";
             bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&none   &kp LEFT_ARROW  &kp DOWN_ARROW  &kp UP_ARROW  &kp RIGHT  &none               &kp PAGE_UP    &mkp LCLK  &mkp RCLK   &none      &mkp MCLK  &none
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans              &trans  &trans                                  &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans      &trans      &trans     &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &mkp LCLK   &mkp MCLK   &mkp RCLK  &trans      &trans
+&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans      &trans      &trans     &trans      &trans
+&trans  &trans  &trans  &trans  &mkp LCLK              &trans  &trans                                  &trans
             >;
         };
 
-        scroll_layer {
-            label = "SCROLL";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans              &trans  &trans                                  &trans
-            >;
-        };
+//        scroll_layer {
+//            label = "SCROLL";
+//            bindings = <
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans              &trans  &trans                                  &trans
+//            >;
+//        };
 
-        snipe_layer {
-            label = "SNIPE";
-            bindings = <
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
-&trans  &trans  &trans  &trans  &trans              &trans  &trans                                  &trans
-            >;
-        };
-    };
+//        snipe_layer {
+//            label = "SNIPE";
+//            bindings = <
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans  &trans              &trans  &trans  &trans  &trans  &trans  &trans
+//&trans  &trans  &trans  &trans  &trans              &trans  &trans                                  &trans
+//            >;
+//        };
+//    };
 };
