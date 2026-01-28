@@ -80,7 +80,7 @@
 / {
     // custom shift using mod-morph 
 
-    // behaviors {
+    //behaviors {
     //    cmqus: comma_question {
     //        compatible = "zmk,behavior-mod-morph";
     //        label = "COMMA_QUESTION";
@@ -98,7 +98,7 @@
 
     //        mods = <(MOD_LSFT|MOD_RSFT)>;
     //    };
-    };
+    //};
 
     keymap {
         compatible = "zmk,keymap";
