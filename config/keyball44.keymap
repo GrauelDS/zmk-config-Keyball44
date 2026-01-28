@@ -19,7 +19,10 @@
                 label = "ZM_r_aro";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                bindings = <&kp LT &kp KP_MINUS> ; };};};
+                bindings = <&kp LT &kp KP_MINUS> ; 
+        };
+    };
+};
 
 / {
 // R dplyr pipe  "%>%"
@@ -28,7 +31,10 @@
                 label = "ZM_dplyr";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                bindings = <&kp PRCNT &kp LT &kp PRCNT> ; };};};
+                bindings = <&kp PRCNT &kp LT &kp PRCNT> ; 
+        };
+    };
+};
 
 / {
 // Mac snipping tool 
@@ -37,18 +43,24 @@
                 label = "ZM_snip";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                bindings = <&kp LGUI &kp LCTRL &kp LSHIFT &kp N4> ; };};};
+                bindings = <&kp LGUI &kp LCTRL &kp LSHIFT &kp N4> ; 
+        };
+    };
+};
 
+/ {
 // Mac whole screencap toolbar
     macros {scrncap: 
             scrncap {
                 label = "ZM_scrncap";
                 compatible = "zmk,behavior-macro";
                 #binding-cells = <0>;
-                bindings = <&kp LGUI &kp LSHIFT &kp N5> ; };};};
+                bindings = <&kp LGUI &kp LSHIFT &kp N5> ; 
+        };
+    };
+};
 
-// safety guard for combo that clears bluetooth
-
+// safety guard for combo that clears bluetooth? [WIP]
 
 &lt {
     tapping-term-ms = <240>;
