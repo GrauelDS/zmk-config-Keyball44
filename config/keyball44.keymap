@@ -21,7 +21,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
-                = <&kp LT &kp KP_MINUS> 
+                = <&macro_tap &kp LT &kp KP_MINUS> 
                 ; 
         };
     };
@@ -35,7 +35,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
-                = <&kp PRCNT &kp LT &kp PRCNT> 
+                = <&macro_tap &kp PRCNT &kp LT &kp PRCNT> 
                 ; 
         };
     };
@@ -49,7 +49,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
-                = <&kp LGUI &kp LCTRL &kp LSHIFT &kp N4> 
+                = <&macro_tap &kp LGUI &kp LCTRL &kp LSHIFT &kp N4> 
                 ; 
         };
     };
@@ -63,7 +63,7 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
-                = <&kp LGUI &kp LSHIFT &kp N5> 
+                = <&macro_tap &kp LGUI &kp LSHIFT &kp N5> 
                 ; 
         };
     };
@@ -83,7 +83,7 @@
     quick-tap-ms = <150>;
 };
 
-&caps_word { continue-list = <UNDERSCORE MINUS>; };
+//&caps_word { continue-list = <UNDERSCORE MINUS>; };
 
 / {
     // custom shift using mod-morph 
@@ -123,8 +123,8 @@
 &kp ESCAPE      &kp Q     &kp W         &kp E        &kp R       &kp T                             &kp Y            &kp U  &kp I      &kp O    &kp P      &kp BACKSPACE
 &kp TAB         &kp A     &kp S         &kp D        &kp F       &kp G                             &kp H            &kp J  &kp K      &kp L    &kp SEMI   &kp SQT
 &kp LCTRL       &kp Z     &kp X         &kp C        &kp V       &kp B                             &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RIGHT_SHIFT
-                &kp LALT      &kp LGUI     &lt 2 CAPS  &kp SPACE  &lt 1 ENTER                  &lt 2 &r_aro  &kp ENTER                         &lt 1 &dplyr
-            >;                             // ^[SYM]            ^[NUMNAV]                        ^[SYM]                                         ^[NUMNAV]
+                &kp LALT      &kp LGUI     &lt 1 CAPS  &kp SPACE  &lt 2 ENTER                  &lt 2 &r_aro  &kp ENTER                         &lt 1 &dplyr
+            >;                             // ^[NUMNAV]            ^[SYM]                        ^[SYM]                                         ^[NUMNAV]
         };
 
         number_layer {
