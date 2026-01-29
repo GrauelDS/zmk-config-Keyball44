@@ -8,6 +8,12 @@
 #include "input/processors.dtsi"
 #include "behaviors/input_gestures_accel.dtsi"
 
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    // Preset values are automatically applied
+};
+
 &default_transform {
     col-offset = <6>;
 };
