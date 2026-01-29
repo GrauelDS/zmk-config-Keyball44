@@ -14,8 +14,8 @@
     sensitivity = <1200>;     // 1.2x base sensitivity
     max-factor = <2800>;      // 2.8x maximum acceleration
     curve-type = <1>;         // 0=Linear, 1=Mild, 2=Strong (Level 1 only)
-    y-boost = <800>;         // 0.8x Y-axis multiplier
-    sensor-dpi = <1000>;       // 1000 DPI sensor specification
+    y-boost = <1000>;         // 1x Y-axis multiplier
+    sensor-dpi = <1200>;       // 1200 DPI sensor specification
 };
 
 &default_transform {
