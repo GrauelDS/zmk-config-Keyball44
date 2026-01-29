@@ -75,16 +75,3 @@
 
   };
 };
-
-
-/ {
-    tball0: tball0 {
-        compatible = "zmk,input-listener";
-        status = "okay";
-        device = <&trackball>;
-        input-processors = <
-            &pointer_accel      // Acceleration processor
-            &zip_xy_transform   // Additional processors as needed
-        >;
-    };
-};
