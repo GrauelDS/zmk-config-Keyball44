@@ -22,7 +22,7 @@
 //    curve-type = <1>;         // 0=Linear, 1=Mild, 2=Strong (Level 1 only)
 //    y-boost = <1200>;         // 1.2x Y-axis multiplier
 //    sensor-dpi = <2400>;       // 2400 DPI sensor specification
-};
+//};
 
 &default_transform {
     col-offset = <6>;
