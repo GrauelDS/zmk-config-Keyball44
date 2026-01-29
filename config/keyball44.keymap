@@ -120,14 +120,14 @@
                 // |   ESC  |   Q   |   W   |   E   |   R   |   T   |                         |   Y   |   U   |   I   |   O   |   P   |  BKSP  |
                 // |   TAB  |   A   |   S   |   D   |   F   |   G   |                         |   H   |   J   |   K   |   L   |   ;   |   '    |
                 // |  CTRL  |   Z   |   X   |   C   |   V   |   B   |                         |   N   |   M   |   ,   |   .   |   /   |  SHFT  |
-                //   ------------|  ALT  |  GUI  |-------|Lsym/CAPS|  SPC  |Lnum/ENT|   | Lsym <- |  ENT  |--------((((o))))[]|Lnum/%>%|
+                //   ------------|  ALT  |  GUI  |-------|Lsym/CAPS|  SPC  |Lnum/ENT|   | Lsym <- | Lmo ENT|--------((((o))))[]|Lnum/%>%|
 
             label = "QWERTY";
             bindings = <
 &kp ESCAPE      &kp Q     &kp W         &kp E        &kp R       &kp T                             &kp Y            &kp U  &kp I      &kp O    &kp P      &kp BACKSPACE
 &kp TAB         &kp A     &kp S         &kp D        &kp F       &kp G                             &kp H            &kp J  &kp K      &kp L    &kp SEMI   &kp SQT
 &kp LCTRL       &kp Z     &kp X         &kp C        &kp V       &kp B                             &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RIGHT_SHIFT
-                &kp LALT      &kp LGUI     &lt 1 CAPS  &kp SPACE  &lt 2 ENTER                  &lt 2 &r_aro  &kp ENTER                         &lt 1 &dplyr
+                &kp LALT      &kp LGUI     &lt 1 CAPS  &kp SPACE  &lt 2 ENTER                  &lt 2 &r_aro  &lt 4 &kp ENTER                         &lt 1 &dplyr
             >;                             // ^[NUMNAV]            ^[SYM]                        ^[SYM]                                         ^[NUMNAV]
         };
 
@@ -161,7 +161,7 @@
 &out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2     &kp AT     &kp LBRC               &kp RBRC       &snip         &scrncap   &none      &none         &trans
 &trans        &kp EXCL     &kp PRCNT     &kp HASH         &kp UNDER  &kp LT                 &kp GT         &kp MINUS     &kp EQUAL  &kp PLUS   &kp PIPE      &kp GRAVE
 &trans        &kp CARET    &kp AMPS      &kp KP_MULTIPLY  &kp DLLR   &kp LBKT               &kp RBKT       &r_aro        &dplyr     &mo 3      &kp BSLH      &kp TILDE
-                           &trans   &trans              &trans  &trans   &trans        &trans  &trans                                          &bt BT_CLR
+                           &trans   &trans              &trans  &trans   &trans        &trans  &kp ENTER                                          &bt BT_CLR
             >;
         };
 
