@@ -8,21 +8,21 @@
 #include "input/processors.dtsi"
 #include "behaviors/input_gestures_accel.dtsi"
 
-&pointer_accel {
-    input-type = <INPUT_EV_REL>;
-    codes = <INPUT_REL_X INPUT_REL_Y>;
-    // Preset values are automatically applied
-};
-
 //&pointer_accel {
 //    input-type = <INPUT_EV_REL>;
 //    codes = <INPUT_REL_X INPUT_REL_Y>;
-//    sensitivity = <1200>;     // 1.2x base sensitivity
-//    max-factor = <2800>;      // 2.8x maximum acceleration
-//    curve-type = <1>;         // 0=Linear, 1=Mild, 2=Strong (Level 1 only)
-//    y-boost = <1200>;         // 1.2x Y-axis multiplier
-//    sensor-dpi = <2400>;       // 2400 DPI sensor specification
+    // Preset values are automatically applied
 //};
+
+&pointer_accel {
+    input-type = <INPUT_EV_REL>;
+    codes = <INPUT_REL_X INPUT_REL_Y>;
+    sensitivity = <1200>;     // 1.2x base sensitivity
+    max-factor = <2800>;      // 2.8x maximum acceleration
+    curve-type = <1>;         // 0=Linear, 1=Mild, 2=Strong (Level 1 only)
+    y-boost = <1200>;         // 1.2x Y-axis multiplier
+    sensor-dpi = <2400>;       // 2400 DPI sensor specification
+};
 
 &default_transform {
     col-offset = <6>;
