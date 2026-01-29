@@ -5,8 +5,8 @@
  */
 
 #include "keyball44.dtsi"
-#include <input/processors.dtsi>
-#include <behaviors/input_gestures_accel.dtsi>
+#include "input/processors.dtsi"
+#include "behaviors/input_gestures_accel.dtsi"
 
 &kscan0 {
 	col-gpios
