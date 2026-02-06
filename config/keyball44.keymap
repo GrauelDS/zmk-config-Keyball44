@@ -35,7 +35,9 @@
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings 
-                = <&macro_tap &kp PRCNT &kp LT &kp PRCNT> 
+                = <&macro_tap &kp PRCNT>
+                , <&macro_tap &kp LT>
+                , <&macro_tap &kp PRCNT> 
                 ; 
         };
     };
@@ -76,9 +78,9 @@
 // safety guard for combo that clears bluetooth? [WIP]
 
 &lt {
-    tapping-term-ms = <240>;
+    tapping-term-ms = <180>;
     flavor = "balanced";
-    quick-tap-ms = <150>;
+    quick-tap-ms = <120>;
 };
 
 &mt {
@@ -120,30 +122,30 @@
                 // |   ESC  |   Q   |   W   |   E   |   R   |   T   |                         |   Y   |   U   |   I   |   O   |   P   |  BKSP  |
                 // |   TAB  |   A   |   S   |   D   |   F   |   G   |                         |   H   |   J   |   K   |   L   |   ;   |   '    |
                 // |  CTRL  |   Z   |   X   |   C   |   V   |   B   |                         |   N   |   M   |   ,   |   .   |   /   |  SHFT  |
-                //   ------------|  ALT  |  GUI  |-------|Lsym/CAPS|  SPC  |Lnum/ENT|   | Lsym <- | Lmo ENT|--------((((o))))[]|Lnum/%>%|
+                //   ------------|  ALT  |  GUI  |-------|Lsym|  SPC  |Lnum|       | Lsym | Lmo ENT|--------((((o))))[]|Lnum/%>%|
 
             label = "QWERTY";
             bindings = <
 &kp ESCAPE      &kp Q     &kp W         &kp E        &kp R       &kp T                             &kp Y            &kp U  &kp I      &kp O    &kp P      &kp BACKSPACE
 &kp TAB         &kp A     &kp S         &kp D        &kp F       &kp G                             &kp H            &kp J  &kp K      &kp L    &kp SEMI   &kp SQT
 &kp LCTRL       &kp Z     &kp X         &kp C        &kp V       &kp B                             &kp N            &kp M  &kp COMMA  &kp DOT  &kp SLASH  &kp RIGHT_SHIFT
-                &kp LALT      &kp LGUI     &lt 1 CAPS  &kp SPACE  &lt 2 ENTER            &lt 2 &r_aro    &lt 4 ENTER                         &lt 1 &dplyr
-            >;                             // ^[NUMNAV]            ^[SYM]                        ^[SYM]                                         ^[NUMNAV]
+                &kp LALT      &kp LGUI         &mo 1   &kp SPACE    &mo 2                    &mo 2     &lt 4 ENTER                         &mo 1
+            >;                             // ^[NUMNAV]            ^[SYM]                     ^[SYM]                                         ^[NUMNAV]
         };
 
         number_layer {
             label = "NUMNAV";
 
         // --------------------------------------------------                         ------------------------------------------------
-        // |   ESC  | PGUP  | HOME  |  UP   |  END  |   {   |                         |   }   |   7   |   8   |   9   |  MUTE | DEL  |
-        // |   TAB  | PGDN  | LFT   |  DWN  |  RGT  |   (   |                         |   )   |   4   |   5   |   6   |  Vol+ | INS  |
-        // |  CTRL  | SHFT  | ALT   |  Bksp |  DEL  |   [   |                         |   ]   |   1   |   2   |   3   |  Vol- | SHFT |
-                //   ------------|  ALT  |  GUI  |---|Lsym/CAPS|  SPC  |Lnum/ENT|   | Lsym <- |   0   |--((((o))))[]  |Lnum/%>%|
+        // |   ESC  | PGUP  | HOME  |  UP   |  END  |   {   |                         |   }   |   7   |   8   |   9   |       | DEL  |
+        // |   TAB  | PGDN  | LFT   |  DWN  |  RGT  |   (   |                         |   )   |   4   |   5   |   6   |  CAPS | INS  |
+        // |  CTRL  | SHFT  | ALT   |  Bksp |  DEL  |   [   |                         |   ]   |   1   |   2   |   3   |  ALT  | SHFT |
+                //   ------------|  ALT  |  GUI  |-------|Lsym|  SPC  |Lnum|   | Lsym  |  0  |--------((((o))))[]|Lnum/%>%|
 
             bindings = <
-&trans   &kp PG_UP    &kp HOME   &kp UP     &kp END     &kp LBRC                 &kp RBRC &kp N7  &kp N8   &kp N9  &kp C_MUTE    &kp DEL
-&trans   &kp PG_DN    &kp LEFT   &kp DOWN   &kp RIGHT   &kp LPAR                 &kp RPAR &kp N4  &kp N5   &kp N6  &kp C_VOL_UP  &kp INS 
-&trans   &kp LSHFT    &kp LALT   &kp BSPC   &kp DEL     &kp LBKT                 &kp RBKT &kp N1  &kp N2   &kp N3  &kp C_VOL_DN  &trans 
+&trans   &kp PG_UP    &kp HOME   &kp UP     &kp END     &kp LBRC                 &kp RBRC &kp N7  &kp N8   &kp N9  &none     &kp DEL
+&trans   &kp PG_DN    &kp LEFT   &kp DOWN   &kp RIGHT   &kp LPAR                 &kp RPAR &kp N4  &kp N5   &kp N6  &kp CAPS  &kp INS 
+&trans   &kp LSHFT    &kp LALT   &kp BSPC   &kp DEL     &kp LBKT                 &kp RBKT &kp N1  &kp N2   &kp N3  &kp LALT  &trans 
 &trans   &trans                                 &trans  &trans   &trans      &trans  &kp N0                        &trans
             >;
         };
@@ -155,7 +157,7 @@
             // | SET_BLE|  BT0  |  BT1  |  BT2  |   @   |   {   |                         |   }   | snip  |scrncap|       |       |  BKSP |
             // |   TAB  |   !   |   %   |   #   |   _   |   <   |                         |   >   |   -   |   =   |   +   |  "|"  |   `   |
             // |  CTRL  |   ^   |   &   |   *   |   $   |   [   |                         |   ]   |   <-  |  %>%  | FKEYS |   \   |   ~   |
-                //   ------------|  ALT  |  GUI  |---|Lsym/CAPS|  SPC  |Lnum/ENT|   | Lsym <- |  ENT  |--------((((o))))[]| BTCLR |
+                //   ------------|  ALT  |  GUI  |---|Lsym|  SPC  |Lnum|   | Lsym |  ENT  |--------((((o))))[]| BTCLR |
 
             bindings = <
 &out OUT_BLE  &bt BT_SEL 0 &bt BT_SEL 1  &bt BT_SEL 2     &kp AT     &kp LBRC               &kp RBRC       &snip         &scrncap   &none      &none         &trans
