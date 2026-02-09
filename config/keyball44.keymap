@@ -36,7 +36,7 @@
             #binding-cells = <0>;
             bindings 
                 = <&macro_tap &kp PRCNT>
-                , <&macro_tap &kp LT>
+                , <&macro_tap &kp GT>
                 , <&macro_tap &kp PRCNT> 
                 ; 
         };
